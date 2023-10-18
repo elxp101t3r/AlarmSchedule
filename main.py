@@ -2,10 +2,8 @@ from tkinter import *
 import datetime
 import time
 import os
-
 def play_sound():
-    os.system("aplay sound.wav")
-
+    os.system("open sound.wav")
 def alarm(set_alarm_timer):
     while True:
         time.sleep(1)
@@ -16,11 +14,9 @@ def alarm(set_alarm_timer):
             print('Wake Up!')
             play_sound()
             break
-
 def actual_time():
     set_alarm_timer = f"{hour.get()}:{min.get()}:{sec.get()}"
     alarm(set_alarm_timer)
-
 root = Tk()
 root.title("Alarm Clock")
 hour = IntVar()
@@ -40,5 +36,4 @@ sec_entry = Entry(root, textvariable=sec)
 sec_entry.grid(row=2, column=1)
 alarm_button = Button(root, text="Set Alarm", command=actual_time)
 alarm_button.grid(row=3, column=0, columnspan=2)
-
 root.mainloop()
